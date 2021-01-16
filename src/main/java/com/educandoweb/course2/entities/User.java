@@ -1,5 +1,5 @@
  
-package com.educandoweb.course.entities;
+package com.educandoweb.course2.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
