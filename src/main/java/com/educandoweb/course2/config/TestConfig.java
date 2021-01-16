@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Profile;
  * @author Jonas created 16/01/2021
  */
 @Configuration //Anotacao avisando que classe é de configuracao
-@Profile("test") //Anotacao falando que a classe é uam configuracao especifica para test
+@Profile("test") //Anotacao falando que a classe é uma configuracao especifica para test
 public class TestConfig implements CommandLineRunner { //CommandLineRunner: Executa o código antes de iniciar um aplicativo
 
     @Autowired //Anoatcao que  Associa a instancia 
