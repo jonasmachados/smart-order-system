@@ -1,6 +1,7 @@
  
 package com.educandoweb.course2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +29,8 @@ public class User  implements Serializable{
     private String phone;
     private String password;
     
+    @JsonIgnore // Anotation to donw let down a  loop
     @OneToMany(mappedBy = "client") //Anotation show 1 for many, mapped by "client"
-    
     private List<Order> orders = new ArrayList<>();
 
     //CONSTRUTOR

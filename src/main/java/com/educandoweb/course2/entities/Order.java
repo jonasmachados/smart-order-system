@@ -1,5 +1,6 @@
 package com.educandoweb.course2.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.Instant;
 import javax.persistence.Entity;
@@ -14,31 +15,33 @@ import javax.persistence.Table;
  *
  * @author Jonas created 16/01/2021
  */
-
 @Entity
 @Table(name = "tb_order")//Anotatio to put a new name to table 
-public class Order implements Serializable{   
+public class Order implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id //Declarando chave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")//Anotation to formated Data
     private Instant moment; //classe para utilizar data melhor que o DATE
 
     @ManyToOne //Anotation show to Spring the association 1 for many
     @JoinColumn(name = "client_id") //Anotation point the foreign key on DB
     private User client;
-    
+
     //COSNTRUTOR
-    public Order(){
+    public Order() {
     }
 
-    public Order(long id, Instant moment, User client) {
+    public Order(Integer id, Instant moment, User client) {
         this.id = id;
         this.moment = moment;
         this.client = client;
     }
-    
+
     //EQUALS AND HASHCODE
     @Override
     public int hashCode() {
@@ -64,14 +67,13 @@ public class Order implements Serializable{
         }
         return true;
     }
-    
-    
+
     //GET AND SET
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -90,7 +92,5 @@ public class Order implements Serializable{
     public void setClient(User client) {
         this.client = client;
     }
-    
-    
 
 }
