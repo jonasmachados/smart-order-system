@@ -18,7 +18,7 @@ public class UserResource {
     //Metodo que retorna os usuarios
     @GetMapping
     public ResponseEntity<User> findAll(){ //ResponseEntity: resposta de aquisicao web
-        User u = new User(1l, "Marua Helena", "maria@gmail.com", "99999999", "12345");
+        User u = new User(11, "Marua Helena", "maria@gmail.com", "99999999", "12345");
         return ResponseEntity.ok().body(u);//Contralador rest
     }
     
