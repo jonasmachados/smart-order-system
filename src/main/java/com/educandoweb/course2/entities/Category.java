@@ -1,5 +1,6 @@
 package com.educandoweb.course2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -27,7 +29,8 @@ public class Category implements Serializable{
     private Long id;
     private String name;
     
-     @Transient
+    @JsonIgnore //Corrigindo erro no Postman
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>(); //SET: Conjunto, para garantir que o mesmo produto nao tenha mais de uma categoria categoria
 
     //Construtor
