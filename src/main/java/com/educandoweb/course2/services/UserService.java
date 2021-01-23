@@ -17,13 +17,20 @@ public class UserService {
     @Autowired //Anoatcao que  Associa a instancia 
     private UserRepository repository;
 
+    //Method to select all users
     public List<User> findAll() { //Operacao na camada de servico
         return repository.findAll();
     }
 
+    //Method to select user by Id
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
         return obj.get();
+    }
+    
+    //Method to save new user
+    public User insert(User obj){
+        return repository.save(obj);
     }
 
 }
