@@ -30,7 +30,7 @@ public class UserResource {
 
     //Metodo que retorna os usuarios por ID
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable Integer id) { //ResponseEntity: resposta de aquisicao web
+    public ResponseEntity<User> findById(@PathVariable Long id) { //ResponseEntity: resposta de aquisicao web
         User obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
 

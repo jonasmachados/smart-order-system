@@ -30,7 +30,7 @@ public class OrderResource {
 
     //Metodo que retorna os usuarios por ID
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Integer id) { //ResponseEntity: resposta de aquisicao web
+    public ResponseEntity<Order> findById(@PathVariable Long id) { //ResponseEntity: resposta de aquisicao web
         Order obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
 
