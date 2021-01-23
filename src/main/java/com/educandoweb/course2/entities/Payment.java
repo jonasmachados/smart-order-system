@@ -1,5 +1,6 @@
 package com.educandoweb.course2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -27,6 +28,7 @@ public class Payment implements Serializable {
     private Instant moment;
 
     //Mapeando a class dependente
+   @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;

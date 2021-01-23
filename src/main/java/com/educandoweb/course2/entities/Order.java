@@ -35,17 +35,17 @@ public class Order implements Serializable {
     private Instant moment; //classe para utilizar data melhor que o DATE
 
     private Integer orderStatus;
-    
+
     @ManyToOne //Anotation show to Spring the association 1 for many
     @JoinColumn(name = "client_id") //Anotation point the foreign key on DB
     private User client;
-    
-    @OneToMany(mappedBy = "id.order") 
+
+    @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL) //mapped id of 2 class
     private Payment payment;
-    
+
     //COSNTRUTOR
     public Order() {
     }
@@ -55,6 +55,14 @@ public class Order implements Serializable {
         this.moment = moment;
         setOrderStatus(orderStatus);
         this.client = client;
+    }
+
+    public Double getTotal() {
+        double sum = 0.0;
+        for (OrderItem x : items) {
+            sum += x.getSubTotal();
+        }
+        return sum;
     }
 
     //EQUALS AND HASHCODE
@@ -90,12 +98,12 @@ public class Order implements Serializable {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
-    }   
-    
-    public Set<OrderItem> getItems(){
-    return items;
-}
-    
+    }
+
+    public Set<OrderItem> getItems() {
+        return items;
+    }
+
     public Long getId() {
         return id;
     }
@@ -117,11 +125,11 @@ public class Order implements Serializable {
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
-        if(orderStatus != null){
-        this.orderStatus = orderStatus.getCode();
+        if (orderStatus != null) {
+            this.orderStatus = orderStatus.getCode();
+        }
     }
-    }
-    
+
     public User getClient() {
         return client;
     }
@@ -129,5 +137,5 @@ public class Order implements Serializable {
     public void setClient(User client) {
         this.client = client;
     }
-    
+
 }

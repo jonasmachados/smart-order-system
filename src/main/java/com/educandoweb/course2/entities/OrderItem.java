@@ -12,7 +12,6 @@ import javax.persistence.Table;
  *
  * @author Jonas created 22/01/2021
  */
-
 @Entity
 @Table(name = "tb_order_item")//Anotatio to put a new name to table 
 public class OrderItem implements Serializable {
@@ -37,21 +36,28 @@ public class OrderItem implements Serializable {
         this.quantity = quantity;
         this.price = price;
     }
-    
+
     //GET AND SET OF ID
     @JsonIgnore
-    public Order getOrder(){
+    public Order getOrder() {
         return id.getOrder();
     }
-    public void setOrder(Order order){
+
+    public void setOrder(Order order) {
         id.setOrder(order);
-    } public Product getProduct(){
+    }
+
+    public Product getProduct() {
         return id.getProduct();
     }
-    public void setProduct(Product product){
+
+    public void setProduct(Product product) {
         id.setProduct(product);
     }
-        
+
+    public Double getSubTotal() {
+        return price * quantity;
+    }
 
     //EQUALS AND HASHCODE
     @Override
