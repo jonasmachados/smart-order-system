@@ -6,6 +6,7 @@ package com.educandoweb.course2.config;
 import com.educandoweb.course2.entities.Category;
 import com.educandoweb.course2.entities.Order;
 import com.educandoweb.course2.entities.OrderItem;
+import com.educandoweb.course2.entities.Payment;
 import com.educandoweb.course2.entities.Product;
 import com.educandoweb.course2.entities.User;
 import com.educandoweb.course2.entities.enums.OrderStatus;
@@ -43,7 +44,7 @@ public class TestConfig implements CommandLineRunner { //CommandLineRunner: Exec
 
     @Autowired //Anatacao que  Associa a instancia 
     private OrderItemRepository orderItemRepository;
-    
+
     @Override
     public void run(String... args) throws Exception {
 
@@ -91,5 +92,9 @@ public class TestConfig implements CommandLineRunner { //CommandLineRunner: Exec
         OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));//Save the items of orders on DB 
+
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+        orderRepository.save(o1);
     }
 }
