@@ -1,5 +1,6 @@
 package com.educandoweb.course2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -37,6 +39,9 @@ public class Product implements Serializable {
             joinColumns = @JoinColumn(name = "product_Id"),
             inverseJoinColumns = @JoinColumn(name = "categoryID"))  //Define a chave estrangeira da outra entidade
     private Set<Category> categories = new HashSet<>();//SET: Conjunto, para garantir que o mesmo produto nao tenha mais de uma categoria categoria
+
+    @OneToMany(mappedBy = "id.product") 
+    private Set<OrderItem> items = new HashSet<>();//SET: Conjunto, para garantir que o mesmo produto nao tenha mais de uma categoria categoria
 
     //CONSTRUCTOR
     public Product() {
@@ -78,6 +83,15 @@ public class Product implements Serializable {
     }
 
     //GET AND SET
+    @JsonIgnore
+    public Set<Order> getOrders(){
+        Set<Order> set = new HashSet<>();
+        for (OrderItem x: items) {
+            set.add(x.getOrder());
+        }
+        return set;
+    }
+    
     public Long getId() {
         return id;
     }
