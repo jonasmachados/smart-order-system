@@ -2,6 +2,7 @@ package com.educandoweb.course2.services;
 
 import com.educandoweb.course2.entities.User;
 import com.educandoweb.course2.repositories.UserRepository;
+import com.educandoweb.course2.services.exceptions.ResourceNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class UserService {
     //Method to select user by Id
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
     
     //Method to save new user
