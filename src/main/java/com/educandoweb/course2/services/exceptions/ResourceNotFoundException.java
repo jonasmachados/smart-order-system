@@ -5,7 +5,7 @@ package com.educandoweb.course2.services.exceptions;
  *
  * @author Jonas created 25/01/2021
  */
-//SUBCLASSE RUNTIMEEXCEPTION
+////Exception specific of services, SUBCLASSE RUNTIMEEXCEPTION
 
 public class ResourceNotFoundException extends RuntimeException{
     
