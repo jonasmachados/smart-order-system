@@ -6,6 +6,7 @@ import com.educandoweb.course2.services.exceptions.DatabaseException;
 import com.educandoweb.course2.services.exceptions.ResourceNotFoundException;
 import java.util.List;
 import java.util.Optional;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -50,9 +51,14 @@ public class UserService {
 
     //Method to update a new user
     public User update(long id, User obj) {
-        User entity = repository.getOne(id); //GetOne let a obj mapped for to JPA, dont go to DB
-        updateData(entity, obj);
-        return repository.save(entity);
+        try {
+            User entity = repository.getOne(id); //GetOne let a obj mapped for to JPA, dont go to DB
+            updateData(entity, obj);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException(id);
+
+        }
     }
 
     private void updateData(User entity, User obj) {
