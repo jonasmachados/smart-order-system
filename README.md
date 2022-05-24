@@ -1,7 +1,7 @@
 <h1 align="center"> Projeto web services com Spring Boot e JPA / Hibernate  </h1>
 
   <div align="center">
-    <img src="tools-image.png">
+    <img src="https://user-images.githubusercontent.com/67349235/170148039-85eb86a9-93fe-4c93-9fd2-48d609d044d2.png">
   </div>
 
 <h2> Sobre </h2>
