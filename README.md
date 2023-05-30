@@ -1,63 +1,65 @@
-<h1 align="center"> Projeto web services com Spring Boot e JPA / Hibernate  </h1>
+# Workshop-PostgreSQL Project
 
-  <div align="center">
-    <img src="https://user-images.githubusercontent.com/67349235/170148039-85eb86a9-93fe-4c93-9fd2-48d609d044d2.png">
-  </div>
+The Workshop-PostgreSQL project is a backend application developed as part of the Java COMPLETO Programação Orientada a Objetos course by Dr. Nelio Alves on Udemy. It is designed to provide a comprehensive control system for managing orders. The application allows clients to place orders, and the system efficiently processes and fulfills these orders by including the requested products.
 
-<h2> Sobre </h2>
-  
-  Esse é um projeto de Spring boot e JPA/Hibernate do curso <b>Java COMPLETO Programação Orientada a Objetos </b> do Dr. Nelio Alves,
-  <a href="https://www.udemy.com/course/java-curso-completo/"> Curso Udemy </a>. Projeto Backend de um controle de pedidos. O cliente faz o pedido em seguida
-  é feito o pedido de venda contento os produtos que foram pedidos pelo cliente.
-  
-  This is a Project of Spring Boot and JPA/Hibernate of course  <b>Java COMPLETO Programação Orientada a Objetos </b> of Dr. Nelio Alves,
-  <a href="https://www.udemy.com/course/java-curso-completo/"> Course Udemy</a>. Project Backend of a control of order. The Client make a order then is fulfil the
-  order include the prodcut that was order by Client.
- 
- <h2> Tecnologias utilizadas </h2>
-  <u1>
-    <li><a href="https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html"> JDK 15 </a> : Java Development Kit 15 - um kit de desenvolvimento para 
-    construção de aplicações e componentes usando a linguagem de programação Java;</li>
-    <li><a href="https://netbeans.apache.org/download/index.html"> NetBeans</a> : O NetBeans IDE é um ambiente de desenvolvimento integrado gratuito e de código aberto 
-    para desenvolvedores de software nas linguagens Java.</li>
-    <li><a href="https://spring.io/"> Spring Boot </a> : O Spring é um framework open source para a plataforma Java criado. Trata-se de um framework não intrusivo,
-    baseado nos padrões de projeto inversão de controle (IoC) e injeção de dependência.</li>
-    <li><a href="http://tomcat.apache.org/"> Apache Tom Cat </a> : O Tomcat é um servidor web Java, mais especificamente, um container de servlets.</li>
-    <li><a href="https://maven.apache.org/"> Maven </a> : Apache Maven, ou Maven, é uma ferramenta de automação de compilação utilizada primariamente em projetos Java.</li>
-    <li><a href="https://www.h2database.com/html/main.html"> Banco de Dados h2 </a> :SQL database em memoria, para testes</li>
-    <li><a href="https://www.postman.com/downloads/"> Postman </a> :  Ferramenta que executa testes de APIs e requisições em geral.</li>
-    <li><a href="https://www.postgresql.org/download/"> PostgreSQL </a> : È um sistema gerenciador de banco de dados objeto relacional </li>
-    <li><a href="https://dashboard.heroku.com/apps"> Heroku </a> : È uma plataforma em nuvem como um serviço que suporta várias linguagens de programação.</li>
-  </u1> 
-  
-  <h3> Intalacao </h2>
-  
-  Para baixar o código-fonte do projeto em sua máquina, primeiramente voce terá que ter instalado em seu computador o <a href="https://git-scm.com/"> GIT </a>.
+Key Features:
 
-  Com o Git instalado, em seu terminal execute o seguinte comando:
-  
-  ```
-  $ git clone https://github.com/jonasmachados/courseSpringBOOTJava15
-  ```
-  Com o projeto baixado, Instale o Postman:
-  
-  ```
-  https://www.postman.com/downloads/
-  ```
-  Instale o PostGreSQL
-  
-   ```
-   https://www.postgresql.org/download/
-   ```
-   Use a porta padrao do PostgreSQL
-   
-   ```
-   5432
-   ```
-   <h2> Author: </h2>
-      <b>Jonas Machado</b>
-    
- 
-  
-  
-  
+- Order Management: The application enables clients to create and manage orders, ensuring a seamless workflow.
+- Product Integration: Products are seamlessly integrated into the ordering process, ensuring accurate fulfillment.
+- Robust Backend: The project leverages the power of Spring Boot and JPA/Hibernate to provide a reliable and efficient backend infrastructure.
+- Database Support: The application supports both H2 Database for testing and PostgreSQL for production, ensuring flexibility and scalability.
+
+By utilizing industry-standard technologies and following best practices, the Workshop-PostgreSQL project aims to deliver a robust and efficient order management system.
+
+
+![UML Diagram](https://user-images.githubusercontent.com/67349235/170148039-85eb86a9-93fe-4c93-9fd2-48d609d044d2.png)
+
+## Technologies Used
+
+The project utilizes the following technologies:
+
+- JDK 15: Java Development Kit 15 - a development kit for building applications and components using the Java programming language.
+- NetBeans: NetBeans IDE is a free and open-source integrated development environment for software developers in the Java languages.
+- Spring Boot: Spring Boot is an open-source framework for Java that provides a simplified way to create production-grade applications.
+- Apache Tomcat: Apache Tomcat is a Java web server and servlet container.
+- Maven: Maven is a build automation tool primarily used for Java projects.
+- H2 Database: H2 is an in-memory SQL database commonly used for testing purposes.
+- Postman: Postman is an API testing tool used to send HTTP requests and analyze responses.
+- PostgreSQL: PostgreSQL is a powerful open-source object-relational database management system.
+
+## Endpoints
+
+The application exposes the following endpoints:
+
+- `/categories`: 
+  - `GET /{id}`: Get a specific category by ID.
+- `/orders`:
+  - `GET`: Get all orders.
+  - `GET /{id}`: Get a specific order by ID.
+  - `POST`: Create a new order.
+- `/products`:
+  - `GET`: Get all products.
+  - `GET /{id}`: Get a specific product by ID.
+- `/users`:
+  - `GET`: Get all users.
+  - `GET /{id}`: Get a specific user by ID.
+  - `POST`: Create a new user.
+  - `DELETE /{id}`: Delete a user by ID.
+  - `PUT /{id}`: Update a user by ID.
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository.
+2. Set up the required dependencies, such as JDK 15, NetBeans, and Maven.
+3. Configure the database connection, either using the H2 in-memory database for testing or PostgreSQL for production.
+4. Build and run the project using your preferred IDE or command line.
+5. Use Postman or any API testing tool to interact with the exposed endpoints.
+
+For more detailed information about the project, please refer to the project documentation and source code.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
