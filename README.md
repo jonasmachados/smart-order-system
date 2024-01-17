@@ -1,4 +1,4 @@
-# Workshop-PostgreSQL Project
+# SmartOrder System
 
 The Workshop-PostgreSQL project is a backend application developed as part of the Java COMPLETO Programação Orientada a Objetos course by Dr. Nelio Alves on Udemy. It is designed to provide a comprehensive control system for managing orders. The application allows clients to place orders, and the system efficiently processes and fulfills these orders by including the requested products.
 
